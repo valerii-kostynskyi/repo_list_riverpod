@@ -4,9 +4,9 @@ import 'package:http/http.dart' as http;
 import 'package:test_riverpod/model/repository_model.dart';
 
 class GitHubService {
+  final String api = 'https://api.github.com';
   Future<List<RepositoryModel>> searchRepositories(String query) async {
-    final url =
-        Uri.parse('https://api.github.com/search/repositories?q=$query');
+    final url = Uri.parse('$api/search/repositories?q=$query');
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
